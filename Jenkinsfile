@@ -12,25 +12,24 @@ pipeline {
       }
     }
     stage('Test') {
-    	//when {
-    	//	expression {
-    	//	    // Solo se ejecuta en las ramas de development y master
-    	//		BRANCH_NAME == 'dev' || BRANCH_NAME == 'master' 
-    	//	   }
-    	//	}
+    	when {
+    		expression {
+    		    // Solo se ejecuta en las ramas de development y master
+    			BRANCH_NAME == 'dev' || BRANCH_NAME == 'master' 
+    		   }
+    		}
       steps {
         echo 'Testing the application'
         sh 'jenkins/test.sh'
       }
     }
     stage('Deploy') {
-      
-         //when {
-    	 //	expression {
+        when {
+    		expression {
     			// Solo se ejecuta en las ramas de master
-    	//		BRANCH_NAME == 'master' 
-    	//	   }
-    	//	}
+    			BRANCH_NAME == 'master' 
+    		   }
+    		}
     	steps {
         echo 'Deploying the application'
         sh 'jenkins/deploy.sh'
