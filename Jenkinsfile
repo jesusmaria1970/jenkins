@@ -24,13 +24,14 @@ pipeline {
       }
     }
     stage('Deploy') {
-      steps {
+      
          //when {
     	 //	expression {
     			// Solo se ejecuta en las ramas de master
     	//		BRANCH_NAME == 'master' 
     	//	   }
     	//	}
+    	steps {
         echo 'Deploying the application'
         sh 'jenkins/deploy.sh'
       }
