@@ -21,6 +21,16 @@ pipeline {
         sh 'jenkins/deploy.sh'
       }
     }
-
+post{
+	always{
+		echo 'Se ha ejecutado el pipeline'
+		}
+	success{
+	    echo 'Se ha ejecutado el pipeline correctamente'
+	}	
+	failure{
+		echo 'Se ha ejecutado el pipeline con fallos'
+		}
+	}
   }
 }
