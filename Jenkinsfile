@@ -21,7 +21,8 @@ pipeline {
         sh 'jenkins/deploy.sh'
       }
     }
-post{
+	}
+   post{
 	always{
 		echo 'Se ha ejecutado el pipeline'
 		}
@@ -32,5 +33,5 @@ post{
 		echo 'Se ha ejecutado el pipeline con fallos'
 		}
 	}
-  }
+ 
 }
